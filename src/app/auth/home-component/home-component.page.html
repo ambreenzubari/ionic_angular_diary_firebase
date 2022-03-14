@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <div *ngIf="wantSignIn==true; else elseBlock">
+      <ion-title>Sign IN</ion-title>
+    </div>
+    <ng-template #elseBlock>
+      <ion-title>
+        Sign UP
+      </ion-title>
+
+
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="height: 600px;">
+
+  <!-- *ngIf="wantSignIn==true; else elseBlock" -->
+
+  <div *ngIf="wantSignIn==true; else elseBlockk" style="margin-top: 40px;">
+
+
+    <!-- SIGN IN -->
+    <form [formGroup]="signInform">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" offset="3">
+            <ion-title>
+              Sign In
+            </ion-title>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-md="6" offset-md="3">
+            <ion-card class="ion-padding">
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input formControlName="email"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+              </ion-item>
+
+              <ion-button type="submit" style="float: right;" shape="round" class="ion-padding" (click)="onSignIn()">
+                Sign In
+              </ion-button>
+
+
+              <br>
+              <div>
+                <p style=" display:inline; float: left; color: red; margin-left: 20px; cursor: pointer;">Forget
+                  Password</p>
+                <p (click)="changeWindowSignUP()" style=" display:inline; float: right; margin-right: 30px;cursor: pointer;
+                color: blue;">Sign
+                  Up</p>
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" offset="3">
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </form>
+  </div>
+  <ng-template #elseBlockk>
+
+    <!-- Sign UP -->
+    <form [formGroup]="signUpForm">
+      <ion-grid style="margin-top: 40px;">
+        <ion-row>
+          <ion-col size="6" offset="3">
+            <ion-title>
+              Sign Up
+            </ion-title>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-md="6" offset-md="3">
+            <ion-card class="ion-padding">
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input formControlName="email"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input formControlName="cnfrmPass" type="password"></ion-input>
+              </ion-item>
+              <ion-button type="submit" (click)="OnSignUP()" style="float: right;" shape="round" class="ion-padding">
+                Sign Up
+              </ion-button>
+
+
+              <br>
+              <div>
+                <p style="display:inline; float: left; color: red; margin-left: 20px; cursor: pointer;">Forget
+                  Password</p>
+                <p (click)="changeWindowSignUP()"
+                  style="display:inline; float: right; margin-right: 30px;cursor: pointer; color: blue;">Sign
+                  Up</p>
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" offset="3">
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </form>
+
+
+  </ng-template>
+
+</ion-content>

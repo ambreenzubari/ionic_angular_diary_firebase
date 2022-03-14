@@ -1,0 +1,86 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start" class="ion-padding" style="cursor: pointer; ">
+      <ion-back-button>
+
+        <ion-icon name="back"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+  <form [formGroup]="addForm">
+
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size="6" offset="3">
+          <ion-title>
+            Add Contact
+          </ion-title>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-md="12" offset-md="5">
+
+
+
+          <img class="imgInput" src="{{url}}"><input class="imgInputLabel" type="file" (change)="onSelectFile($event)"
+            style="color: black;">
+
+
+        </ion-col>
+      </ion-row>
+
+
+
+
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card class="ion-padding">
+            <ion-item>
+              <ion-label position="floating">Contact Name</ion-label>
+              <ion-input formControlName="name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Number</ion-label>
+              <ion-input formControlName="adress"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Adress</ion-label>
+              <ion-input formControlName="phoneNumber"></ion-input>
+            </ion-item>
+
+            <br>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" offset="3">
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-md="6" offset-md="3" class="ion-padding">
+          <ion-button type="submit" expand="full" shape="round" class="ion-padding" (click)="onSubmitBtn()">Add Contact
+          </ion-button>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+</ion-content>

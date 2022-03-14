@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  firebase: {
+    projectId: 'ionicdiaryapp',
+    appId: '1:15364444739:web:0d505327f0bff991c53af6',
+    storageBucket: 'ionicdiaryapp.appspot.com',
+    apiKey: 'AIzaSyDlwkrd8pog6Yddymj3tsx3kCXcvD_P7LE',
+    authDomain: 'ionicdiaryapp.firebaseapp.com',
+    messagingSenderId: '15364444739',
+    measurementId: 'G-7NLR9ETWDX',
+  },
+  production: false,
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 };
 
 /*

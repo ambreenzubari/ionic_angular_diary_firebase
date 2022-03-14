@@ -4,13 +4,61 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'contacts',
     pathMatch: 'full'
   },
+
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path:'contacts',
+    children:[
+      {
+        path: '',
+        loadChildren: () => import('./auth/home-component/home-component.module').then( m => m.HomeComponentPageModule)
+      },
+      {
+        path: 'addContact',
+        loadChildren: () => import('./Contacts/add-contact/add-contact.module').then( m => m.AddContactPageModule)
+      },
+      {
+        path: 'listContacts',
+ 
+        children:[
+          
+          {
+            path:'',
+            loadChildren: () => import('./Contacts/list-contacts/list-contacts.module').then( m => m.ListContactsPageModule),
+          }
+          
+          ,{
+
+            // Edit-delete
+            path: ':contactId',
+            loadChildren: () => import('./Contacts/edit-delete-contact/edit-delete-contact.module').then( m => m.EditDeleteContactPageModule)
+          },
+        ]
+      },
+
+    ]
   }
+  // {
+  //   path: 'home',
+  //   loadChildren: () => import('./auth/home-component/home-component.module').then( m => m.HomeComponentPageModule)
+  // },
+  // {
+  //   path: 'addContact',
+  //   loadChildren: () => import('./Contacts/add-contact/add-contact.module').then( m => m.AddContactPageModule)
+  // },
+  // {
+  //   path: 'listContacts',
+  //   loadChildren: () => import('./Contacts/list-contacts/list-contacts.module').then( m => m.ListContactsPageModule)
+  // },
+  // {
+
+  //   // Edit-delete
+  //   path: 'contactId',
+  //   loadChildren: () => import('./Contacts/edit-delete-contact/edit-delete-contact.module').then( m => m.EditDeleteContactPageModule)
+  // },
+ 
 ];
 
 @NgModule({

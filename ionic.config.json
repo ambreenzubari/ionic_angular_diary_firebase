@@ -1,5 +1,8 @@
 {
   "name": "DiaryFirebase",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

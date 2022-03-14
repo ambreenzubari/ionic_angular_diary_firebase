@@ -1,0 +1,52 @@
+<ion-header>
+
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end" class="ion-padding" style="cursor: pointer; " (click)="logOut()">
+      LOG OUT&nbsp;&nbsp;
+      <ion-icon name="exit-outline" size="large"></ion-icon>
+    </ion-buttons>
+
+
+    <ion-title>Contact List</ion-title>
+
+
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-card> -->
+
+  <!-- </ion-card> -->
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3"> -->
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <ion-card style="height: 100vh; width: 70vw; align-self: center;">
+
+      <ion-list *ngFor="let contact of contacts" (click)='onClickItem(contact)'
+        [routerLink]="['/contacts/listContacts', contact.id]">
+        <div>
+          <ion-item style="cursor: default;">
+            <ion-avatar slot="start">
+              <ion-img [src]="contact.img"> </ion-img>
+            </ion-avatar>
+            <ion-label>
+              {{contact.name}}
+            </ion-label>
+            <br>
+
+          </ion-item>
+        </div>
+      </ion-list>
+    </ion-card>
+  </div>
+
+  <ion-fab [routerLink]="['/contacts/addContact']" slot="fixed" style="margin-left: 65vw; margin-top: 40vh;">
+    <ion-fab-button style="font-size: 30px;">+</ion-fab-button>
+  </ion-fab>
+
+</ion-content>
